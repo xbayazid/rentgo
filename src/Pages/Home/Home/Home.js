@@ -14,7 +14,7 @@ const Home = () => {
             <FindProperties/>
             <Choose/>
             <Feedback/>
-            <Consultation/>
+            {/* <Consultation/> */}
         </div>
     );
 };
