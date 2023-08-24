@@ -16,7 +16,7 @@ const FindProperties = () => {
                                 alt="Card"
                             />
                             <div className="px-6 py-4">
-                                <Link to='' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
+                                <Link to='/propertyDetails' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
                                 <div className='mt-3'>
                                     <p className='flex items-center gap-2'><HiOutlineLocationMarker className='text-blue-800'/><span className='text-gray-600'>2854 Meadow View Drive, Hartford, USA</span></p>
                                     <div className="my-2">
@@ -46,7 +46,7 @@ const FindProperties = () => {
                                 alt="Card"
                             />
                             <div className="px-6 py-4">
-                                <Link to='' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
+                                <Link to='/propertyDetails' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
                                 <div className='mt-3'>
                                     <p className='flex items-center gap-2'><HiOutlineLocationMarker className='text-blue-800'/><span className='text-gray-600'>2854 Meadow View Drive, Hartford, USA</span></p>
                                     <div className="my-2">
@@ -76,7 +76,7 @@ const FindProperties = () => {
                                 alt="Card"
                             />
                             <div className="px-6 py-4">
-                                <Link to='' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
+                                <Link to='/propertyDetails' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
                                 <div className='mt-3'>
                                     <p className='flex items-center gap-2'><HiOutlineLocationMarker className='text-blue-800'/><span className='text-gray-600'>2854 Meadow View Drive, Hartford, USA</span></p>
                                     <div className="my-2">
@@ -106,7 +106,7 @@ const FindProperties = () => {
                                 alt="Card"
                             />
                             <div className="px-6 py-4">
-                                <Link to='' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
+                                <Link to='/propertyDetails' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
                                 <div className='mt-3'>
                                     <p className='flex items-center gap-2'><HiOutlineLocationMarker className='text-blue-800'/><span className='text-gray-600'>2854 Meadow View Drive, Hartford, USA</span></p>
                                     <div className="my-2">
@@ -136,7 +136,7 @@ const FindProperties = () => {
                                 alt="Card"
                             />
                             <div className="px-6 py-4">
-                                <Link to='' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
+                                <Link to='/propertyDetails' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
                                 <div className='mt-3'>
                                     <p className='flex items-center gap-2'><HiOutlineLocationMarker className='text-blue-800'/><span className='text-gray-600'>2854 Meadow View Drive, Hartford, USA</span></p>
                                     <div className="my-2">
@@ -166,7 +166,7 @@ const FindProperties = () => {
                                 alt="Card"
                             />
                             <div className="px-6 py-4">
-                                <Link to='' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
+                                <Link to='/propertyDetails' className="text-xl hover:text-blue-700">Villa on Hartford</Link>
                                 <div className='mt-3'>
                                     <p className='flex items-center gap-2'><HiOutlineLocationMarker className='text-blue-800'/><span className='text-gray-600'>2854 Meadow View Drive, Hartford, USA</span></p>
                                     <div className="my-2">
