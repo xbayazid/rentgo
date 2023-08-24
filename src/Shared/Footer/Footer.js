@@ -2,7 +2,10 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 px-4 py-12">
+        <div>
+            <div className='h-1 bg-[#888] rounded my-4'></div>
+            <div className="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 py-8">
+            
             <div className="flex flex-col items-center justify-center">
                 <div>
                     <h1 className="title text-2xl">RentGo</h1>
@@ -50,6 +53,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
