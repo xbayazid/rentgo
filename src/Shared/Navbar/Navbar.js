@@ -55,17 +55,17 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                                    <Link to="/property" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                                         Property List
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                                    <Link to="/about" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                                         About Us
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                                    <Link to="/contact" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                                         Contact Us
                                     </Link>
                                 </li>
