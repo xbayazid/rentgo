@@ -70,6 +70,9 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                             </ul>
+                            <Link to='/login'>
+                            <button className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-3 font-semibold rounded'>Log In</button>
+                            </Link>
                         </div>
                     </div>
                     {/* For small screen */}

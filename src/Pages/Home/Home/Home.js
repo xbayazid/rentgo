@@ -5,6 +5,7 @@ import FindProperties from '../FindProperties/FindProperties';
 import Choose from '../Choose/Choose';
 import Consultation from '../Consultation/Consultation';
 import Feedback from '../Feedback/Feedback';
+import PropertyValuation from '../PropertyValuation/PropertyValuation';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <FindProperties/>
             <Choose/>
             <Feedback/>
+            <PropertyValuation/>
             {/* <Consultation/> */}
         </div>
     );
