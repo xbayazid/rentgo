@@ -16,7 +16,7 @@ const PropertyDetailsBody = () => {
                 <PropertyOffers/>
                 <PropertyPlan/>
             </div>
-            <div className='w-[40%] sticky top-2'>
+            <div className='w-[40%] h-[500px] sticky top-2'>
                 <RecentlyAdded/>
             </div>
         </div>
