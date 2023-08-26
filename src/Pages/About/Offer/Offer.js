@@ -3,7 +3,7 @@ import { HiChatAlt, HiOutlineTrendingUp, HiUserGroup } from "react-icons/hi";
 
 const Offer = () => {
     return (
-        <div className='mb-5 bg-pink-100 px-5 py-14'>
+        <div className='bg-pink-100 px-5 py-14'>
             <div className='mx-[7%]'>
                 <div className='text-center mb-5'>
                     <h1 className='text-5xl font-bold mb-3'>What we do for you</h1>

@@ -4,6 +4,7 @@ import Profit from './Profit/Profit';
 import Mission from './Mission/Mission';
 import Planning from './Planning/Planning';
 import Offer from './Offer/Offer';
+import Explore from './Explore/Explore';
 
 const About = () => {
     return (
@@ -13,6 +14,7 @@ const About = () => {
             <Mission/>
             <Planning/>
             <Offer/>
+            <Explore/>
         </div>
     );
 };
