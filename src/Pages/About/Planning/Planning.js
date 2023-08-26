@@ -2,7 +2,7 @@ import React from 'react';
 
 const Planning = () => {
     return (
-        <div className='my-5 bg-black py-14 px-5 text-white'>
+        <div className='mt-5 bg-black py-14 px-5 text-white'>
             <div className='mx-[7%] grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                 <div>
                 <h1 className='text-4xl font-bold'>01</h1>

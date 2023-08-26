@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Mission = () => {
     return (
-        <div className='mx-[7%] my-5'>
+        <div className='mx-[7%] mt-5'>
             <div className='grid grid-cols-1 lg:grid-cols-2 items-center gap-5'>
                 <div>
                 <h1 className='text-2xl lg:text-4xl font-bold'>Mission</h1>
