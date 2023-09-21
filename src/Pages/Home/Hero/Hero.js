@@ -7,7 +7,7 @@ const Hero = () => {
             <div className="flex justify-center items-center h-full flex-col">
                 <h1 className='text-5xl font-semibold capitalize text-white'>Let us guide you home</h1>
                 <div className='flex gap-4 mt-3 bg-gray-300 p-5 w-[80%] justify-between outline-none focus:outline-none visited:outline-none'>
-                    <input type="text" className='w-2/3 px-3' placeholder='Enter Property,Location,Landmark...' />
+                    <input type="text" className='w-2/3 px-3 outline-none' placeholder='Enter Property,Location,Landmark...' />
                     <select name="" id="" className='px-7 py-2'>
                         <option value="Select City">Select City</option>
                         <option value="Dhaka">Dhaka</option>

@@ -1,25 +1,26 @@
 import React from 'react';
 import { HiOutlineCheckCircle } from "react-icons/hi";
 
-const PropertyOffers = () => {
+const PropertyOffers = ({property}) => {
+    const {_id, propertyType, propertyStatus, rent, room, bedroom, bath, garage, size} = property;
     return (
         <div className='bg-white shadow-md rounded p-5 mt-8'>
             <h2 className="text-2xl font-semibold mt-8">Property Details</h2>
             <div className="grid grid-cols-3 mt-4 gap-5">
                 <div>
-                    <p>Property ID : <span className='text-[#888]'>ZOAC25</span></p>
-                    <p>Property Type : <span className='text-[#888]'>Apartment</span></p>
-                    <p>Property status : <span className='text-[#888]'>For rent</span></p>
+                    <p>Property ID : <span className='text-[#888]'>{_id}</span></p>
+                    <p>Property Type : <span className='text-[#888]'>{propertyType}</span></p>
+                    <p>Property status : <span className='text-[#888]'>{propertyStatus}</span></p>
                 </div>
                 <div>
-                    <p>Property Price : <span className='text-[#888]'>$5300/month</span></p>
-                    <p>Rooms :  <span className='text-[#888]'>6</span></p>
-                    <p>Bedrooms:  <span className='text-[#888]'>4</span></p>
+                    <p>Property Price : <span className='text-[#888]'>৳{rent}/month</span></p>
+                    <p>Rooms :  <span className='text-[#888]'>{room}</span></p>
+                    <p>Bedrooms:  <span className='text-[#888]'>{bedroom}</span></p>
                 </div>
                 <div>
-                    <p>Bath: <span className='text-[#888]'>3</span></p>
-                    <p>Garages: <span className='text-[#888]'>1</span></p>
-                    <p>Year Built: <span className='text-[#888]'>26.3.2019</span></p>
+                    <p>Bath: <span className='text-[#888]'>{bath}</span></p>
+                    <p>Garages: <span className='text-[#888]'>{garage}</span></p>
+                    <p>Size: <span className='text-[#888]'>{size} sq ft</span></p>
                 </div>
             </div>
 

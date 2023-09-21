@@ -38,8 +38,11 @@ const router = createBrowserRouter([
                 element: <Signup/>
             },
             {
-                path: '/propertyDetails',
-                element: <PropertyDetails/>
+                path: '/propertyDetails/:id',
+                element: <PropertyDetails/>,
+                loader: ({params}) => {
+                    return fetch(`http://localhost:5000/propertyDetails/${params.id}`)
+                }
             }
         ]
     }
