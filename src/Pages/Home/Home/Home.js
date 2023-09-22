@@ -6,6 +6,7 @@ import Choose from '../Choose/Choose';
 import Consultation from '../Consultation/Consultation';
 import Feedback from '../Feedback/Feedback';
 import PropertyValuation from '../PropertyValuation/PropertyValuation';
+import SingleMap from '../../../components/Map/SingleMap';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <Feedback/>
             <PropertyValuation/>
             {/* <Consultation/> */}
+            <SingleMap/>
         </div>
     );
 };

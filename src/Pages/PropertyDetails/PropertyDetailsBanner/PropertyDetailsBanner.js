@@ -17,6 +17,7 @@ const PropertyDetailsBanner = ({property}) => {
                 </div>
                 <div>
                     <p>Stats From / <span className='text-2xl font-semibold text-blue-500'>৳{rent}</span></p>
+                    
                 </div>
             </div>
         </div>
