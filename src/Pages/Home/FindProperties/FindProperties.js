@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { HiOutlineLocationMarker, HiOutlineCheckCircle, HiOutlineStar } from "react-icons/hi";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PropertyCard from '../../../components/PropertyCard/PropertyCard';
@@ -8,7 +6,7 @@ import PropertyCard from '../../../components/PropertyCard/PropertyCard';
 const FindProperties = () => {
     const [properties, setProperties] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/houses')
+        fetch('http://localhost:5000/properties')
             .then(res => res.json())
             .then(data => setProperties(data.slice(0, 6)))
     }, [])
