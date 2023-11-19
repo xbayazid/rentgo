@@ -6,7 +6,7 @@ import PropertyCard from '../../../components/PropertyCard/PropertyCard';
 const FindProperties = () => {
     const [properties, setProperties] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/properties')
+        fetch('https://rentgo-server.vercel.app/properties')
             .then(res => res.json())
             .then(data => setProperties(data.slice(0, 6)))
     }, [])

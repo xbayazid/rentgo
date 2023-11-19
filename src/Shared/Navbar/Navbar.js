@@ -22,7 +22,7 @@ const Navbar = () => {
                 <Link to="/property">Property List</Link>
             </li>
             <li className='hover:text-orange-500 duration-300 ease-in-out'>
-                <Link to="/">Transport</Link>
+                <Link to="/transport">Transport</Link>
             </li>
             <li className='hover:text-orange-500 duration-300 ease-in-out'>
                 <Link to="/about">About Us</Link>
@@ -30,16 +30,6 @@ const Navbar = () => {
             <li className='hover:text-orange-500 duration-300 ease-in-out'>
                 <Link to="/contact">Contact Us</Link>
             </li>
-
-            {user?.uid ? (
-                <>
-                    <li className='hover:text-orange-500 duration-300 ease-in-out'>
-                        <Link to="/dashboard">Dashboard</Link>
-                    </li>
-                </>
-            ) : (
-                <></>
-            )}
         </React.Fragment>
     );
 
@@ -89,7 +79,7 @@ const Navbar = () => {
                                 {menuItems}
                             </ul>
                         </div>
-                        <Link to='/' className="md:w-2/12 cursor-pointer title text-4xl text-gray-800 dark:text-white" aria-label="rent Go."> rentGo
+                        <Link to='/' className="md:w-2/12 cursor-pointer title text-4xl text-white" aria-label="rent Go."> rentGo
                         </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
@@ -121,10 +111,10 @@ const Navbar = () => {
                                     </label>
                                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box -ml-24 w-44">
                                         <li>
-                                            <Link className='text-black'>My Dashboard</Link>
+                                            <Link to='/dashboard' className='text-black'>My Dashboard</Link>
                                         </li>
                                         <li>
-                                            <Link className='text-black'>WishList</Link>
+                                            <Link to='/wishlist' className='text-black'>WishList</Link>
                                         </li>
                                         <li className='text-center'>
                                         <Link className='text-white text-center bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-3 font-semibold rounded' onClick={handleLogOut}>Log Out</Link>
