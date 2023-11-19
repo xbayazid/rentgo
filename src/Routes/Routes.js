@@ -4,9 +4,19 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
 import About from "../Pages/About/About";
-import Property from "../Pages/Property/Property";
+// import Property from "../Pages/Property/Property";
 import Contact from "../Pages/Contact/Contact";
 import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails";
+import Transport from "../Pages/Transport/Transport";
+import PrivateRoutes from "./PrivateRoutes";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import DashboardLayout from "../Layout/DashboardLayout";
+import AllUser from "../Pages/Dashboard/AllUser/AllUser";
+import AllBookings from "../Pages/Dashboard/AllBookings/AllBookings";
+import Wishlist from "../Pages/Wishlist/Wishlist";
+// import SearchProperty from "../Pages/SearchProperty/SearchProperty";
+import Properties from "../Pages/Property/Properties/Properties";
+import AddProperty from "../Pages/Dashboard/AddProperty/AddProperty";
 
 const router = createBrowserRouter([
     {
@@ -19,11 +29,24 @@ const router = createBrowserRouter([
             },
             {
                 path: '/property',
-                element: <Property/>
+                element: <Properties/>
+            },
+            {
+                path: '/property/:value',
+                element: <Properties/>,
+                
+            },
+            {
+                path: '/transport',
+                element: <Transport/>
             },
             {
                 path: '/about',
                 element: <About/>
+            },
+            {
+                path: '/wishlist',
+                element: <Wishlist/>
             },
             {
                 path: '/contact',
@@ -39,11 +62,39 @@ const router = createBrowserRouter([
             },
             {
                 path: '/propertyDetails/:id',
-                element: <PropertyDetails/>,
+                element: <PrivateRoutes><PropertyDetails/></PrivateRoutes>,
                 loader: ({params}) => {
-                    return fetch(`http://localhost:5000/propertyDetails/${params.id}`)
+                    return fetch(`https://rentgo-server.vercel.app/propertyDetails/${params.id}`)
                 }
-            }
+            },
+            
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard/>
+            },
+            {
+                path: '/dashboard/addProperty',
+                element: <AddProperty/>
+            },
+            {
+                path: '/dashboard/myProperty',
+                element: <AddProperty/>
+            },
+            {
+                path: '/dashboard/allUser',
+                element: <AllUser/>
+            },
+            {
+                path: '/dashboard/allBookings',
+                element: <AllBookings/>
+            },
+
         ]
     }
 ])

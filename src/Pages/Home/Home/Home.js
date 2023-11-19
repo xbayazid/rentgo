@@ -18,7 +18,7 @@ const Home = () => {
             <Feedback/>
             <PropertyValuation/>
             {/* <Consultation/> */}
-            <SingleMap/>
+            {/* <SingleMap/> */}
         </div>
     );
 };

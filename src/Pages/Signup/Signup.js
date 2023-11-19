@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import signUpImg from '../../assets/images/register.png'
 import { AuthContext } from '../../contexts/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Signup = () => {
     const {createUser, updateUser, googleSignIn} = useContext(AuthContext);
+    const [createUserEmail, setCreateUserEmail] = useState("");
+    const [token] = useToken(createUserEmail);
+    const location = useLocation();
     const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleCreateUser = (event) => {
         event.preventDefault();
@@ -15,6 +21,7 @@ const Signup = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const role = 'user'
 
         const userInfo = {
             displayName: name
@@ -26,8 +33,8 @@ const Signup = () => {
             console.log(user);
             updateUser(userInfo)
             .then( () => {
+              saveUser(name,email, role);
               
-              navigate('/')
             })
             .then()
         })
@@ -39,27 +46,29 @@ const Signup = () => {
       .then(result => {
           const user = result.user;
           console.log(user);
-          navigate('/')
+          const role = 'user';
+          saveUser(user.displayName, user.email, role);
       })
       .catch(err => {
           console.error(err);
       })
   }
 
-    // const saveUser = (name, email) => {
-    //   const user = {name, email};
-    //   fetch('https://mybook-server.vercel.app/users', {
-    //     method: 'POST',
-    //     headers: {
-    //       'content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify(user)
-    //   })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data);
-    //   })
-    // }
+  const saveUser = (name, email, role) => {
+    const user = {name, email, role};
+    fetch('https://rentgo-server.vercel.app/users', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data => {
+      setCreateUserEmail(email)
+    })
+  }
+
 
     return (
         <div className="hero min-h-screen">
