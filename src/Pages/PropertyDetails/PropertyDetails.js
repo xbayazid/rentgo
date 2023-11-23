@@ -6,11 +6,12 @@ import { useLoaderData } from 'react-router-dom';
 
 const PropertyDetails = () => {
     const property = useLoaderData();
+    const {location, area }= property;
     return (
         <div>
             <PropertyDetailsBanner property={property}/>
             <PropertyDetailsBody property={property}/>
-            <Map/>
+            <Map property={property}/>
         </div>
     );
 };

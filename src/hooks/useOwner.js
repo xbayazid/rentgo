@@ -7,7 +7,7 @@ const useOwner = (email) => {
         fetch(`https://rentgo-server.vercel.app/user/owner/${email}`)
         .then(res => res.json())
         .then(data => {
-            setIsOwner(data.isAdmin);
+            setIsOwner(data.isOwner);
             setIsOwnerLoading(false);
         })
     }, [email])

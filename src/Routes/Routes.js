@@ -17,6 +17,7 @@ import Wishlist from "../Pages/Wishlist/Wishlist";
 // import SearchProperty from "../Pages/SearchProperty/SearchProperty";
 import Properties from "../Pages/Property/Properties/Properties";
 import AddProperty from "../Pages/Dashboard/AddProperty/AddProperty";
+import MyProperty from "../Pages/Dashboard/MyProperty/MyProperty";
 
 const router = createBrowserRouter([
     {
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/myProperty',
-                element: <AddProperty/>
+                element: <MyProperty/>
             },
             {
                 path: '/dashboard/allUser',

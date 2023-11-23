@@ -65,8 +65,8 @@ const TransportBanner = () => {
 
     return (
         <div>
-            <div className="md:py-10 md:bg-[url('https://i.ibb.co/JjxZD8g/shifting-banner.webp')] bg-cover bg-center bg-no-repeat md:px-[7%] md:grid grid-cols-1 md:grid-cols-2 md:items-center">
-                <div className="h-[70vh] bg-[url('https://i.ibb.co/JjxZD8g/shifting-banner.webp')] md:bg-none bg-cover bg-left bg-no-repeat px-[7%] md:px-0 flex items-center">
+            <div className="md:py-10 md:bg-[url('https://i.ibb.co/SR2JZ4z/truck.jpg')] bg-cover bg-left bg-no-repeat md:px-[7%] md:grid grid-cols-1 md:grid-cols-2 md:items-center">
+                <div className="h-[70vh] bg-[url('https://i.ibb.co/SR2JZ4z/truck.jpg')] md:bg-none bg-cover bg-left bg-no-repeat px-[7%] md:px-0 flex items-center">
                     <div>
                     <h1 className="text-4xl md:text-6xl font-semibold text-blue-600">Enjoy hassle-free <br /> shifting</h1>
                     <fieldset className='w-fit text-white px-5 pb-2 border-2 rounded-3xl cursor-pointer hover:bg-error hover:border-error transition-all duration-500 group'>

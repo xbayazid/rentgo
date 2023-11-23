@@ -101,17 +101,21 @@ const AllBookings = () => {
                                         <th>Name</th>
                                         <th>Phone</th>
                                         <th>Email</th>
+                                        <th>From</th>
+                                        <th>To</th>
                                         <th>Booking Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        transports.map((transport, i) => (
+                                        [...transports].reverse().map((transport, i) => (
                                             <tr key={i} className="hover">
                                                 <th>{i + 1}</th>
                                                 <td>{transport.name}</td>
                                                 <td>{transport.phone}</td>
                                                 <td>{transport.email}</td>
+                                                <td>{transport.shiftFrom}</td>
+                                                <td>{transport.shiftTo}</td>
                                                 <td>{transport.date}</td>
                                             </tr>
                                         ))

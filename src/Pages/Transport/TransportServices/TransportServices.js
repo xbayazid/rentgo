@@ -14,7 +14,7 @@ const TransportServices = () => {
                 <div>
                     <img src={Image} alt="" className='rounded-md' />
                 </div>
-                <div className='grid grid-cols-2 gap-6'>
+                <div className='grid md:grid-cols-2 gap-6'>
                     <div className="card bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
                             <img src={icon1} alt="Shoes" className="rounded-xl" />

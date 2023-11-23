@@ -79,9 +79,12 @@ const PropertyReviews = ({ id }) => {
                     <SingleReviewCard key={idx} review={review} />
                 )
             }
-            <div className='text-center mb-5'>
+            {
+                reviews.length >= 4 &&
+                <div className='text-center mb-5'>
                 <button className='btn btn-primary' onClick={handleSlice}>View More</button>
             </div>
+            }
             <hr />
             <h2 className="text-2xl font-semibold mt-5">Rate us and Write a Review</h2>
             <form onSubmit={handleReview} className='my-5'>

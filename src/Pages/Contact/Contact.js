@@ -11,7 +11,7 @@ const Contact = () => {
                 <h1 className='text-5xl font-bold my-2'>Get in touch with our team</h1>
                 <p>We have the team and know-how to help you scale 10x faster.</p>
             </div>
-            <Map/>
+            {/* <Map/> */}
             <ContactCard/>
             <ContactForm/>
         </div>
