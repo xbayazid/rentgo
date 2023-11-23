@@ -1,17 +1,29 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import toast from 'react-hot-toast';
 
 const AllUser = () => {
     const { user, loading } = useContext(AuthContext);
     const [activeTab, setActiveTab] = useState(1);
+    const [requestEmail , setRequestEmail ] = useState('');
+    const [role, setRole] = useState('');
+    const [userName, setUserName] = useState('')
 
     const handleTabClick = (tabNumber) => {
         setActiveTab(tabNumber);
     };
 
+    const closeModal = (name) => {
+        // Get the modal element
+        const modal = document.getElementById(name);
 
-    const { data: users = [], isLoading } = useQuery({
+        // Hide the modal
+        modal.close();
+    };
+
+
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
             const res = await fetch('https://rentgo-server.vercel.app/users/');
@@ -19,6 +31,26 @@ const AllUser = () => {
             return data;
         }
     });
+
+    const handleRole = () =>{
+        const url = `https://rentgo-server.vercel.app/user/update/${role}?email=${requestEmail}`;
+        fetch(url, {
+                method: 'PUT',
+                headers: {
+                    "content-type": "application/json"
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.acknowledged){
+                        refetch();
+                        closeModal('request-modal');
+                        toast.success((role === 'confirm'? 'Owner Request Accept Successfully!!' : 'Owner Deleted Successfully!!'));
+                    }
+                })
+    }
+
     return (
         <div>
             <div className="grid grid-cols-4">
@@ -98,16 +130,16 @@ const AllUser = () => {
                                 <tbody>
                                     {
                                         users.map((user, i) => (
-                                            
-                                                user.role === 'owner' ? 
+
+                                            user.role === 'owner' ?
                                                 <tr key={i} className="hover">
-                                                <th></th>
-                                                <td>{user.name}</td>
-                                                <td>{user.email}</td>
-                                                <td>{ user?.role !== 'admin' && <button className='btn btn-xs text-white btn-error'>Delete</button>}</td>
-                                            </tr>:
-                                            <></>
-                                            
+                                                    <th></th>
+                                                    <td>{user.name}</td>
+                                                    <td>{user.email}</td>
+                                                    <td>{user?.role !== 'admin' && <button className='btn btn-xs text-white btn-error' onClick={() => {document.getElementById('request-modal').showModal(); setRequestEmail(user.email); setRole('delete'); setUserName(user.name)}}>Delete</button>}</td>
+                                                </tr> :
+                                                <></>
+
                                         ))
                                     }
 
@@ -119,7 +151,7 @@ const AllUser = () => {
                 {activeTab === 3 &&
                     <div>
                         <div className="overflow-x-auto">
-                        <table className="table">
+                            <table className="table">
                                 {/* head */}
                                 <thead>
                                     <tr>
@@ -132,16 +164,16 @@ const AllUser = () => {
                                 <tbody>
                                     {
                                         users.map((user, i) => (
-                                            
-                                                user.role === 'request' ? 
+
+                                            user.role === 'request' ?
                                                 <tr key={i} className="hover">
-                                                <th></th>
-                                                <td>{user.name}</td>
-                                                <td>{user.email}</td>
-                                                <td>{ user?.role !== 'admin' && <button className='btn btn-xs text-white btn-success'>Confirm</button>}</td>
-                                            </tr>:
-                                            <></>
-                                            
+                                                    <th></th>
+                                                    <td>{user.name}</td>
+                                                    <td>{user.email}</td>
+                                                    <td>{user?.role !== 'admin' && <button onClick={() => {document.getElementById('request-modal').showModal(); setRequestEmail(user.email); setRole('confirm'); setUserName(user.name)}} className='btn btn-xs text-white btn-success'>Confirm</button>}</td>
+                                                </tr> :
+                                                <></>
+
                                         ))
                                     }
 
@@ -153,7 +185,7 @@ const AllUser = () => {
                 {activeTab === 4 &&
                     <div>
                         <div className="overflow-x-auto">
-                        <table className="table">
+                            <table className="table">
                                 {/* head */}
                                 <thead>
                                     <tr>
@@ -166,16 +198,16 @@ const AllUser = () => {
                                 <tbody>
                                     {
                                         users.map((user, i) => (
-                                            
-                                                user.role === 'admin' ? 
+
+                                            user.role === 'admin' ?
                                                 <tr key={i} className="hover">
-                                                <th></th>
-                                                <td>{user.name}</td>
-                                                <td>{user.email}</td>
-                                                <td>{ user?.role !== 'admin' && <button className='btn btn-xs text-white btn-error'>Delete</button>}</td>
-                                            </tr>:
-                                            <></>
-                                            
+                                                    <th></th>
+                                                    <td>{user.name}</td>
+                                                    <td>{user.email}</td>
+                                                    <td>{user?.role !== 'admin' && <button className='btn btn-xs text-white btn-error' >Delete</button>}</td>
+                                                </tr> :
+                                                <></>
+
                                         ))
                                     }
 
@@ -186,6 +218,17 @@ const AllUser = () => {
                 }
                 {/* Add content for more tabs as needed */}
             </div>
+            <dialog id="request-modal" className="modal">
+                <div className="modal-box">
+                    <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <h2 className="text-xl font-semibold mt-5 capitalize text-center">{role === 'confirm'? `Do you really want to make ${userName} as a owner!!`: `Do you really want to Delete ${userName}!!`}</h2>
+                    <p className='text-right'><button onClick={handleRole} className={`btn btn-outline ${role === 'confirm'? 'btn-success':'btn-error'} mt-5`}>{role === 'confirm'? 'Confirm' : 'Delete'}</button></p>
+
+                </div>
+            </dialog>
         </div>
     );
 };

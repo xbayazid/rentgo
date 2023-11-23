@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PropertyCard from '../../../components/PropertyCard/PropertyCard';
+import Loader from '../../../components/Loader/Loader';
 
 const FindProperties = () => {
     const [properties, setProperties] = useState([]);
@@ -10,6 +11,10 @@ const FindProperties = () => {
             .then(res => res.json())
             .then(data => setProperties(data.slice(0, 6)))
     }, [])
+
+    if(properties.length < 1){
+        return <Loader />
+    }
 
     console.log(properties);
     return (

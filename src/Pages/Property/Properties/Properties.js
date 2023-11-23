@@ -8,6 +8,7 @@ const Properties = () => {
     const {value} = useParams()
     const [selectPorperty, setSelectProperty] = useState(null);
     const [selectCity, setSelectCity] = useState(null);
+    const [properties, setProperties] = useState([]);
     const [handleDesable, setHandleDesble] = useState(true)
     const handleCity = (event) => {
         const city = event.target.value;
@@ -16,30 +17,18 @@ const Properties = () => {
     }
 
     useEffect(() => setSelectProperty(value), [value])
-// for(let i = 0; i<1; i++){
-//     if(value !== undefined){
-//         setSelectProperty(value);
-//     }
-//     i++;
-// }
+
     console.log(selectPorperty)
 
-    const {data: properties = [], isLoading, refetch} = useQuery({
-        queryKey: ['proerty'],
-        queryFn: async () => {
-            const res = await fetch(`https://rentgo-server.vercel.app/properties?${selectPorperty}`);
-            const data = await res.json();
-            return data;
-        }
-    })
-
-    
+    useEffect(()=> {
+        fetch(`https://rentgo-server.vercel.app/properties?${selectPorperty}`)
+        .then(res => res.json())
+        .then(data => {
+            setProperties(data);
+        })
+    }, [selectPorperty])
 
     console.log(properties)
-
-    if(selectPorperty){
-        refetch();
-    }
 
     const [currentPage, setCurrentPage] = useState(1);
     const recordsPerPage = 6;
@@ -89,7 +78,7 @@ const Properties = () => {
         
     }
 
-    if(isLoading){
+    if(properties.length < 1){
         return <Loader/>
     }
     return (
@@ -125,9 +114,9 @@ const Properties = () => {
                 </form>
             </div>
             <div className="my-6 mx-8">
-                <div className="grid gap-5 lg:grid-cols-3">
+                <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {
-                        records.map((property) => <PropertyCard key={property._id} property={property} />)
+                        records.map((property) => (<PropertyCard key={property._id} property={property} />))
                     }
                 </div>
             </div>

@@ -93,6 +93,7 @@ const AddProperty = () => {
                                                 propertyName,
                                                 location,
                                                 ownerName: user?.displayName,
+                                                ownerEmail: user?.email,
                                                 authorImage: user?.photoURL,
                                                 rent,
                                                 description,
@@ -133,26 +134,28 @@ const AddProperty = () => {
                             else {
                                 const property = {
                                     image,
-                                    propertyName,
-                                    location,
-                                    ownerName: user?.displayName,
-                                    authorImage: user?.photoURL,
-                                    rent,
-                                    description,
-                                    video,
-                                    propertyPlan: null,
-                                    gallery,
-                                    propertyType,
-                                    propertyStatus,
-                                    room,
-                                    bedroom,
-                                    bath,
-                                    garage,
-                                    size,
-                                    rentDetails,
-                                    review: [],
-                                    isRent: true,
-                                    availability
+                                                propertyName,
+                                                location,
+                                                ownerName: user?.displayName,
+                                                ownerEmail: user?.email,
+                                                authorImage: user?.photoURL,
+                                                rent,
+                                                description,
+                                                video,
+                                                gallery,
+                                                propertyType,
+                                                propertyStatus,
+                                                room,
+                                                bedroom,
+                                                bath,
+                                                garage,
+                                                size,
+                                                area,
+                                                city: 'Dhaka',
+                                                rentDetails,
+                                                review: [],
+                                                isRent: true,
+                                                availability
                                 }
                                 fetch('https://rentgo-server.vercel.app/properties/', {
                                     method: 'POST',
@@ -398,9 +401,9 @@ const AddProperty = () => {
                 </div>
             </form>
 
-            <div className='text-center my-10'>
+            {/* <div className='text-center my-10'>
                 <button type='submit' className='px-5 py-2 border-2 border-orange-300 uppercase font-semibold tracking-wide hover:bg-orange-300 duration-500' onClick={handleSubmit}>upload</button>
-            </div>
+            </div> */}
         </div>
     );
 };

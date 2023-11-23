@@ -46,14 +46,13 @@ const ShiftingProcess = () => {
                     <img src={Image} alt="" className='rounded-md' />
                 </div>
             </div>
-            <div className="card card-side bg-base-100 shadow-xl my-20">
+            <div className="card md:card-side bg-base-100 shadow-xl my-20">
                 <figure><img src={poster} alt="Movie" className='h-[300px]'/></figure>
-                <div className="card-body">
+                <div className="card-body pb-20">
                     <h2 className="card-title">Shift Home/Office with Truck Needed</h2>
-                    <p>Our professional shifting service is at your side 24/7 to meet your home/office shifting needs. So contact us now for a unique experience of home/office shifting.</p>
-                    <div className='-mt-20'>
-                        <a href="#transport-booking" className='btn btn-error text-white'>booking Now</a>
-                    </div>
+                    <p className='pb-2'>Our professional shifting service is at your side 24/7 to meet your home/office shifting needs. So contact us now for a unique experience of home/office shifting.</p>
+                        <a href="#transport-booking" className='btn w-[200px] btn-error text-white'>booking Now</a>
+                    
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
-    const { user, loading } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const [activeTab, setActiveTab] = useState(1);
 
     const handleTabClick = (tabNumber) => {
@@ -43,6 +43,10 @@ const Dashboard = () => {
             return data;
         }
     })
+
+    if(isLoading){
+        return <Loader/>
+    }
 
     return (
         <div>

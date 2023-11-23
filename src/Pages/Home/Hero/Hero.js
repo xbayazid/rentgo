@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import heroBg from '../../../assets/images/home-bg.png';
+import heroBg from '../../../assets/images/old-dhaka-dhakabangladesh-3232018-known-260nw-1685188096.webp';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {

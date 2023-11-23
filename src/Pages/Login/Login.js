@@ -40,11 +40,8 @@ const Login = () => {
         .then(async result => {
             const user = result.user;
             console.log(user);
-            setLoginUserEmail(user.email);
-            if(await (token)){
-              navigate(from, {replace: true});
-            }
-            // navigate(from, {replace: true});
+            setLoginUserEmail(user.email); 
+            navigate(from, {replace: true});
         })
         .catch(err => {
             console.error(err);

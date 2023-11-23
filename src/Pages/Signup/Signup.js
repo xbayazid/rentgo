@@ -66,6 +66,7 @@ const Signup = () => {
     .then(res => res.json())
     .then(data => {
       setCreateUserEmail(email)
+      navigate(from, {replace: true})
     })
   }
 
