@@ -4,7 +4,7 @@ const useRequest = (email) => {
     const [isRequest, setIsRequest] = useState(false);
     const [isRequestLoading, setIsRequestLoading] = useState(true);
     useEffect( () =>{
-        fetch(`https://rentgo-server.vercel.app/user/request/${email}`)
+        fetch(`http://localhost:5000/user/request/${email}`)
         .then(res => res.json())
         .then(data => {
             setIsRequest(data.isAdmin);

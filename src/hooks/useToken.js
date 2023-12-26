@@ -7,7 +7,7 @@ const useToken = (email) => {
   useEffect(() => {
     console.log(email)
     if (email) {
-      fetch(`https://rentgo-server.vercel.app/jwt?email=${email}`)
+      fetch(`http://localhost:5000/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.accessToken) {

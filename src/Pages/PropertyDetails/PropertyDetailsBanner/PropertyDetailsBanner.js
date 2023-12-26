@@ -22,7 +22,7 @@ const PropertyDetailsBanner = ({ property }) => {
             email
         }
 
-        fetch('https://rentgo-server.vercel.app/wishlist', {
+        fetch('http://localhost:5000/wishlist', {
             method: "POST",
             headers: {
                 'content-type' : 'application/json'

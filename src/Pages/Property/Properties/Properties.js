@@ -3,12 +3,13 @@ import PropertyCard from '../../../components/PropertyCard/PropertyCard';
 import { useQuery } from '@tanstack/react-query';
 import Loader from '../../../components/Loader/Loader';
 import { useParams } from 'react-router-dom';
+import NoSearchFound from '../../../components/NoSearchFound/NoSearchFound';
 
 const Properties = () => {
     const {value} = useParams()
     const [selectPorperty, setSelectProperty] = useState(null);
     const [selectCity, setSelectCity] = useState(null);
-    const [properties, setProperties] = useState([]);
+    // const [properties, setProperties] = useState([]);
     const [handleDesable, setHandleDesble] = useState(true)
     const handleCity = (event) => {
         const city = event.target.value;
@@ -20,13 +21,22 @@ const Properties = () => {
 
     console.log(selectPorperty)
 
-    useEffect(()=> {
-        fetch(`https://rentgo-server.vercel.app/properties?${selectPorperty}`)
-        .then(res => res.json())
-        .then(data => {
-            setProperties(data);
-        })
-    }, [selectPorperty])
+    // useEffect(()=> {
+    //     fetch(`http://localhost:5000/properties?${selectPorperty}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         setProperties(data);
+    //     })
+    // }, [selectPorperty])
+
+    const {data: properties = [], isLoading, refetch} = useQuery({
+        queryKey: ['property', selectPorperty],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/properties?${selectPorperty}`);
+            const data = await res.json()
+            return data;
+        }
+    })
 
     console.log(properties)
 
@@ -34,7 +44,7 @@ const Properties = () => {
     const recordsPerPage = 6;
     const lastIndex = currentPage * recordsPerPage;
     const firstIndex = lastIndex - recordsPerPage;
-    const records = properties.slice(firstIndex, lastIndex);
+    const records = [...properties].reverse().slice(firstIndex, lastIndex);
     const nPage = Math.ceil(properties.length / recordsPerPage);
     const numbers = [...Array(nPage + 1).keys()].slice(1);
 
@@ -78,8 +88,12 @@ const Properties = () => {
         
     }
 
-    if(properties.length < 1){
+    if(isLoading){
         return <Loader/>
+    }
+
+    if(properties.length < 1){
+        return <NoSearchFound/>
     }
     return (
         <div>

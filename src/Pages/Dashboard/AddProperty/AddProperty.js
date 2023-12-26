@@ -114,7 +114,7 @@ const AddProperty = () => {
                                                 isRent: true,
                                                 availability
                                             }
-                                            fetch('https://rentgo-server.vercel.app/properties/', {
+                                            fetch('http://localhost:5000/properties/', {
                                                 method: 'POST',
                                                 headers: {
                                                     'content-type': 'application/json',
@@ -157,7 +157,7 @@ const AddProperty = () => {
                                                 isRent: true,
                                                 availability
                                 }
-                                fetch('https://rentgo-server.vercel.app/properties/', {
+                                fetch('http://localhost:5000/properties/', {
                                     method: 'POST',
                                     headers: {
                                         'content-type': 'application/json',
@@ -183,7 +183,7 @@ const AddProperty = () => {
 
     const setProperty = ({ property }) => {
         console.log(property)
-        fetch('https://rentgo-server.vercel.app/properties/', {
+        fetch('http://localhost:5000/properties/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

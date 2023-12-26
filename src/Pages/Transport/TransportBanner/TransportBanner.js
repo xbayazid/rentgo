@@ -42,7 +42,7 @@ const TransportBanner = () => {
             navigate('/login');
         }
         else{
-            fetch('https://rentgo-server.vercel.app/transportBooking', {
+            fetch('http://localhost:5000/transportBooking', {
             method: "POST",
             headers: {
                 'content-type' : 'application/json'

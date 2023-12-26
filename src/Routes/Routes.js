@@ -18,6 +18,7 @@ import Wishlist from "../Pages/Wishlist/Wishlist";
 import Properties from "../Pages/Property/Properties/Properties";
 import AddProperty from "../Pages/Dashboard/AddProperty/AddProperty";
 import MyProperty from "../Pages/Dashboard/MyProperty/MyProperty";
+import MyPropertyBookings from "../Pages/Dashboard/MyPropertyBookings/MyPropertyBookings";
 
 const router = createBrowserRouter([
     {
@@ -65,7 +66,7 @@ const router = createBrowserRouter([
                 path: '/propertyDetails/:id',
                 element: <PrivateRoutes><PropertyDetails/></PrivateRoutes>,
                 loader: ({params}) => {
-                    return fetch(`https://rentgo-server.vercel.app/propertyDetails/${params.id}`)
+                    return fetch(`http://localhost:5000/propertyDetails/${params.id}`)
                 }
             },
             
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/myProperty',
                 element: <MyProperty/>
+            },
+            {
+                path: '/dashboard/myPropertyBookings',
+                element: <MyPropertyBookings/>
             },
             {
                 path: '/dashboard/allUser',

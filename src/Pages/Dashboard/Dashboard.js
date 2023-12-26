@@ -13,7 +13,7 @@ const Dashboard = () => {
     };
 
 
-    const bookingUrl = `https://rentgo-server.vercel.app/bookings?email=${user.email}`
+    const bookingUrl = `http://localhost:5000/bookings?email=${user.email}`
     const { data: bookings = [], isLoading } = useQuery({
         queryKey: ['booking'],
         queryFn: async () => {
@@ -29,7 +29,7 @@ const Dashboard = () => {
 
     console.log(bookings);
 
-    const url = `https://rentgo-server.vercel.app/transportBooking?email=${user?.email}`
+    const url = `http://localhost:5000/transportBooking?email=${user?.email}`
 
     const { data: transports = [] } = useQuery({
         queryKey: ['transport'],
@@ -84,7 +84,7 @@ const Dashboard = () => {
                                 </thead>
                                 <tbody>
                                 {
-                                        bookings.map((booking, i) => (
+                                        [...bookings].reverse().map((booking, i) => (
                                             <tr key={i} className="hover">
                                         <th>{i+1}</th>
                                         <td>
@@ -117,7 +117,7 @@ const Dashboard = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        transports.map((transport, i) => (
+                                        [...transports].reverse().map((transport, i) => (
                                             <tr key={i} className="hover">
                                         <th>{i+1}</th>
                                         <td>{transport.name}</td>
