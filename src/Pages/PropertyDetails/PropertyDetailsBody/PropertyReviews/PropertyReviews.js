@@ -13,7 +13,7 @@ const PropertyReviews = ({ id }) => {
     const { data: reviews = [], refetch, isLoading } = useQuery({
         queryKey: ['review'],
         queryFn: async () => {
-            const res = await fetch(`https://rentgo-server.vercel.app/propertyDetails/${id}/review`);
+            const res = await fetch(`http://localhost:5000/propertyDetails/${id}/review`);
             const data = await res.json();
             return data;
         }
@@ -55,7 +55,7 @@ const PropertyReviews = ({ id }) => {
                 comment: comment,
                 ratting: ratting
             }
-            fetch(`https://rentgo-server.vercel.app/propertyDetails/${id}/review`, {
+            fetch(`http://localhost:5000/propertyDetails/${id}/review`, {
                 method: 'PUT',
                 headers: {
                     "content-type": "application/json"

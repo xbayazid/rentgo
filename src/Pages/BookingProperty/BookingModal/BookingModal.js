@@ -14,6 +14,7 @@ const BookingModal = ({ property, setHouse }) => {
         event.preventDefault();
         const form = event.target;
         const propertyName = property.propertyName;
+        const authorEmail = property.ownerEmail;
         const name = user?.displayName;
         const email = user?.email;
         const phone = form.phone.value;
@@ -28,13 +29,14 @@ const BookingModal = ({ property, setHouse }) => {
             name,
             email,
             phone,
+            authorEmail,
             nid,
             tourDate,
             propertyImage
         }
 
         // console.log(booking)
-        // fetch('https://rentgo-server.vercel.app/bookings', {
+        // fetch('http://localhost:5000/bookings', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'
@@ -54,7 +56,7 @@ const BookingModal = ({ property, setHouse }) => {
 
         //     })
 
-        fetch('https://rentgo-server.vercel.app/bookings', {
+        fetch('http://localhost:5000/bookings', {
             method: "POST",
             headers: {
                 'content-type' : 'application/json'

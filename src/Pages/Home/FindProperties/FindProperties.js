@@ -7,9 +7,9 @@ import Loader from '../../../components/Loader/Loader';
 const FindProperties = () => {
     const [properties, setProperties] = useState([]);
     useEffect(() => {
-        fetch('https://rentgo-server.vercel.app/properties')
+        fetch('http://localhost:5000/properties')
             .then(res => res.json())
-            .then(data => setProperties(data.slice(0, 6)))
+            .then(data => setProperties(data.reverse().slice(0, 6)))
     }, [])
 
     if(properties.length < 1){

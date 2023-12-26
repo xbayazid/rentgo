@@ -56,7 +56,7 @@ const DashboardLayout = () => {
     }
 
     const makeMeOwner = () =>{
-        const url = `https://rentgo-server.vercel.app/user/update/request?email=${user?.email}`;
+        const url = `http://localhost:5000/user/update/request?email=${user?.email}`;
         fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -122,6 +122,7 @@ const DashboardLayout = () => {
                             (isOwner || isAdmin) &&
                             <>
                                 <li className='hover:text-orange-600 cursor-pointer text-center'><Link to='/dashboard/myProperty'>My Property</Link></li>
+                                <li className='hover:text-orange-600 cursor-pointer text-center'><Link to='/dashboard/myPropertyBookings'>My Property Bookings</Link></li>
                                 <li className='hover:text-orange-600 cursor-pointer text-center'><Link to='/dashboard/addProperty'>Add Property</Link></li>
                             </>
                         }
