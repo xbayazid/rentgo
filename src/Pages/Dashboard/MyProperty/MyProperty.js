@@ -11,7 +11,7 @@ const MyProperty = () => {
     const [action, setAction] = useState('');
     const [propertyName, setPropertyName] = useState('');
 
-    const url = `http://localhost:5000/myProperty?email=${user?.email}`;
+    const url = `https://rentgo-server.vercel.app/myProperty?email=${user?.email}`;
 
     const { data: properties = [], refetch, isLoading } = useQuery({
         queryKey: ['property'],
@@ -23,7 +23,7 @@ const MyProperty = () => {
     })
 
     const handleRole = () =>{
-        const url = `http://localhost:5000/properties/update/${action}?id=${propertyId}`;
+        const url = `https://rentgo-server.vercel.app/properties/update/${action}?id=${propertyId}`;
         fetch(url, {
                 method: 'PUT',
                 headers: {

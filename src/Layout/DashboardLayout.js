@@ -7,7 +7,6 @@ import useAdmin from '../hooks/useAdmin';
 import useOwner from '../hooks/useOwner';
 import { MdEdit } from "react-icons/md";
 import { FaUserAlt } from 'react-icons/fa';
-import { da } from 'date-fns/locale';
 import useRequest from '../hooks/useRequest';
 import toast from 'react-hot-toast';
 
@@ -56,7 +55,7 @@ const DashboardLayout = () => {
     }
 
     const makeMeOwner = () =>{
-        const url = `http://localhost:5000/user/update/request?email=${user?.email}`;
+        const url = `https://rentgo-server.vercel.app/user/update/request?email=${user?.email}`;
         fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -82,11 +81,11 @@ const DashboardLayout = () => {
             <Navbar />
             <div className="drawer lg:drawer-open">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content">
+                <div className="drawer-content ml-5">
                     <Outlet />
 
                 </div>
-                <div className="drawer-side min-h-full ">
+                <div className="drawer-side min-h-screen lg:sticky">
                     <label htmlFor="dashboard-drawer" aria-label="close sidebar" className="drawer-overlay bg-[#2B3440]"></label>
                     
                     <ul className="p-4 min-h-full w-[300px] bg-[#2B3440] text-white gap-5 flex flex-col">

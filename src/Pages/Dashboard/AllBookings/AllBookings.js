@@ -14,13 +14,13 @@ const AllBookings = () => {
     const { data: bookings = [], isLoading } = useQuery({
         queryKey: ['booking'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allBookings/');
+            const res = await fetch('https://rentgo-server.vercel.app/allBookings/');
             const data = await res.json();
             return data;
         }
     });
 
-    const url = `http://localhost:5000/allTransportBookings`
+    const url = `https://rentgo-server.vercel.app/allTransportBookings`
 
     const { data: transports = [] } = useQuery({
         queryKey: ['transport'],

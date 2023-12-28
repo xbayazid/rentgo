@@ -8,7 +8,7 @@ const RecentlyAdded = () => {
     const {data: proerties = []} = useQuery({
         queryKey: ['property'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/properties');
+            const res = await fetch('https://rentgo-server.vercel.app/properties');
             const data = res.json();
             return data;
         }

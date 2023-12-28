@@ -13,7 +13,7 @@ const Dashboard = () => {
     };
 
 
-    const bookingUrl = `http://localhost:5000/bookings?email=${user.email}`
+    const bookingUrl = `https://rentgo-server.vercel.app/bookings?email=${user.email}`
     const { data: bookings = [], isLoading } = useQuery({
         queryKey: ['booking'],
         queryFn: async () => {
@@ -29,7 +29,7 @@ const Dashboard = () => {
 
     console.log(bookings);
 
-    const url = `http://localhost:5000/transportBooking?email=${user?.email}`
+    const url = `https://rentgo-server.vercel.app/transportBooking?email=${user?.email}`
 
     const { data: transports = [] } = useQuery({
         queryKey: ['transport'],

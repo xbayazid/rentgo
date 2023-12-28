@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 import 'react-day-picker/dist/style.css';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
+import Skeleton from '../../../components/Skeleton/Skeleton';
 
 const AddProperty = () => {
     const { user } = useContext(AuthContext);
@@ -15,6 +16,8 @@ const AddProperty = () => {
     const [propertyPlans, setPropertyPlans] = useState([]);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [gallery, setGallery] = useState([]);
+    const [isUpload, setIsUpload] = useState(false);
+    const navigate = useNavigate();
 
     const availability = format(selectedDate, "PP");
     // console.log(availability)
@@ -73,6 +76,8 @@ const AddProperty = () => {
             }
         ]
 
+        setIsUpload(true);
+
         cloudUpload(videoes)
             .then(res => res.json())
             .then(data => {
@@ -114,7 +119,7 @@ const AddProperty = () => {
                                                 isRent: true,
                                                 availability
                                             }
-                                            fetch('http://localhost:5000/properties/', {
+                                            fetch('https://rentgo-server.vercel.app/properties/', {
                                                 method: 'POST',
                                                 headers: {
                                                     'content-type': 'application/json',
@@ -126,7 +131,7 @@ const AddProperty = () => {
                                                 .then(result => {
                                                     console.log(result);
                                                     toast.success(`Porperty is added successfully`);
-                                                    //   navigate('/dashboard/managedoctors');
+                                                      navigate('/dashboard/myProperty');
                                                 })
                                         }
                                     })
@@ -157,7 +162,7 @@ const AddProperty = () => {
                                                 isRent: true,
                                                 availability
                                 }
-                                fetch('http://localhost:5000/properties/', {
+                                fetch('https://rentgo-server.vercel.app/properties/', {
                                     method: 'POST',
                                     headers: {
                                         'content-type': 'application/json',
@@ -169,7 +174,7 @@ const AddProperty = () => {
                                     .then(result => {
                                         console.log(result);
                                         toast.success(`Porperty is added successfully`);
-                                        //   navigate('/dashboard/managedoctors');
+                                          navigate('/dashboard/myProperty');
                                     })
                             }
                         })
@@ -183,7 +188,7 @@ const AddProperty = () => {
 
     const setProperty = ({ property }) => {
         console.log(property)
-        fetch('http://localhost:5000/properties/', {
+        fetch('https://rentgo-server.vercel.app/properties/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -195,7 +200,7 @@ const AddProperty = () => {
             .then(result => {
                 console.log(result);
                 toast.success(`Porperty is added successfully`);
-                //   navigate('/dashboard/managedoctors');
+                  navigate('/dashboard/managedoctors');
             })
     }
 
@@ -214,16 +219,19 @@ const AddProperty = () => {
     return (
         <div>
             {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur eligendi modi deleniti deserunt cumque! Odit sit in expedita veritatis? Rerum sint officiis nam asperiores a eos inventore cum! Sed quo pariatur ipsum accusantium non praesentium quas beatae! Deserunt assumenda optio incidunt nihil delectus, ad quia atque suscipit a explicabo velit quod necessitatibus. Ipsam non laboriosam reiciendis praesentium eius vitae eveniet beatae corporis magnam aliquid ab, inventore vel pariatur voluptatum est iusto voluptatibus dolorum quidem laborum culpa quaerat reprehenderit dolorem. Ab minus veritatis iusto unde, voluptatem blanditiis debitis enim corrupti, a magnam laboriosam vitae sunt facere. Explicabo a quod praesentium architecto.</p> */}
-            <div className='flex justify-between items-center mb-5 border-b-2 '>
+            {
+                isUpload ? <Skeleton /> : 
+                <>
+                <div className='flex justify-between items-center mb-5 border-b-2 '>
                 <div>
                     <h3 className="text-4xl font-bold">Add Property</h3>
                     <p className='text-slate-600'>Welcome To Admin Panel</p>
                 </div>
                 <div className='mr-9'>
                     <p className='flex gap-3'>
-                        <Link>Home</Link>
+                        <Link to="/">Home</Link>
                         <span>/</span>
-                        <Link>My Properties</Link>
+                        <Link to="/dashboard/myProperty">My Properties</Link>
                     </p>
                 </div>
             </div>
@@ -304,11 +312,10 @@ const AddProperty = () => {
                         <div>
                             <p className="font-semibold">Area</p>
                             <select name='area' className="select select-bordered w-full ">
-                                <option value='Uttara' selected>Uttara</option>
-                                <option value='Mirpur'>Mirpur</option>
-                                <option value='Dhanmondi'>Dhanmondi</option>
-                                <option value='Gulshan'>Gulshan</option>
-                                <option value='Baridara'>Baridara</option>
+                            <option value="Mirpur">Mirpur</option>
+                                <option value="Dhanmondi">Dhanmondi</option>
+                                <option value="Uttara">Uttara</option>
+                                <option value="Banani">Banani</option>
                             </select>
                         </div>
                         <div>
@@ -397,13 +404,11 @@ const AddProperty = () => {
                     </div>
                 </div>
                 <div className='text-center my-10'>
-                    <button type='submit' className='px-5 py-2 border-2 border-orange-300 uppercase font-semibold tracking-wide hover:bg-orange-300 duration-500'>upload</button>
+                    <button type='submit' className='px-5 py-2 border-2 border-[#2B3440] uppercase font-semibold tracking-wide hover:bg-[#2B3440] hover:text-white duration-500'>upload</button>
                 </div>
             </form>
-
-            {/* <div className='text-center my-10'>
-                <button type='submit' className='px-5 py-2 border-2 border-orange-300 uppercase font-semibold tracking-wide hover:bg-orange-300 duration-500' onClick={handleSubmit}>upload</button>
-            </div> */}
+                </>
+            }
         </div>
     );
 };

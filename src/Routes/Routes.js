@@ -66,7 +66,7 @@ const router = createBrowserRouter([
                 path: '/propertyDetails/:id',
                 element: <PrivateRoutes><PropertyDetails/></PrivateRoutes>,
                 loader: ({params}) => {
-                    return fetch(`http://localhost:5000/propertyDetails/${params.id}`)
+                    return fetch(`https://rentgo-server.vercel.app/propertyDetails/${params.id}`)
                 }
             },
             

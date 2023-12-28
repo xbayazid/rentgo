@@ -4,7 +4,7 @@ const useOwner = (email) => {
     const [isOwner, setIsOwner] = useState(false);
     const [isOwnerLoading, setIsOwnerLoading] = useState(true);
     useEffect( () =>{
-        fetch(`http://localhost:5000/user/owner/${email}`)
+        fetch(`https://rentgo-server.vercel.app/user/owner/${email}`)
         .then(res => res.json())
         .then(data => {
             setIsOwner(data.isOwner);

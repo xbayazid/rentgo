@@ -36,7 +36,7 @@ const BookingModal = ({ property, setHouse }) => {
         }
 
         // console.log(booking)
-        // fetch('http://localhost:5000/bookings', {
+        // fetch('https://rentgo-server.vercel.app/bookings', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'
@@ -56,7 +56,7 @@ const BookingModal = ({ property, setHouse }) => {
 
         //     })
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://rentgo-server.vercel.app/bookings', {
             method: "POST",
             headers: {
                 'content-type' : 'application/json'

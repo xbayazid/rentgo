@@ -8,7 +8,7 @@ const MyPropertyBookings = () => {
     const { data: bookings = [] } = useQuery({
         queryKey: ['booking', user.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myPropertyBooking?email=${user?.email}`);
+            const res = await fetch(`https://rentgo-server.vercel.app/myPropertyBooking?email=${user?.email}`);
             const data = await res.json();
             return data;
         }
