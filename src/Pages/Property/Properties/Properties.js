@@ -22,7 +22,7 @@ const Properties = () => {
     console.log(selectPorperty)
 
     // useEffect(()=> {
-    //     fetch(`http://localhost:5000/properties?${selectPorperty}`)
+    //     fetch(`https://rentgo-server.vercel.app/properties?${selectPorperty}`)
     //     .then(res => res.json())
     //     .then(data => {
     //         setProperties(data);
@@ -32,7 +32,7 @@ const Properties = () => {
     const {data: properties = [], isLoading, refetch} = useQuery({
         queryKey: ['property', selectPorperty],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/properties?${selectPorperty}`);
+            const res = await fetch(`https://rentgo-server.vercel.app/properties?${selectPorperty}`);
             const data = await res.json()
             return data;
         }

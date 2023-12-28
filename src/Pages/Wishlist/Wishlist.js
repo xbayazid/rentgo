@@ -6,7 +6,7 @@ import Loader from '../../components/Loader/Loader';
 
 const Wishlist = () => {
     const {user} = useContext(AuthContext);
-    const url = `http://localhost:5000/wishlist?email=${user?.email}`;
+    const url = `https://rentgo-server.vercel.app/wishlist?email=${user?.email}`;
     const {data: properties = [], isLoading} = useQuery({
         queryKey: ['property'],
         queryFn: async () => {
